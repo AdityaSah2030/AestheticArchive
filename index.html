@@ -1,508 +1,238 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Portfolio</title>
-    <style>
-        /* Global Styles */
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #f5f5f5;
-            --accent-color: #4a4a4a;
-            --font-main: 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-main);
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            line-height: 1.6;
-        }
-        
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem;
-            position: fixed;
-            width: 100%;
-            background-color: rgba(245, 245, 245, 0.95);
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-scrolled {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 1rem 2rem;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary-color);
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-            color: white;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-        
-        /* Gallery Section */
-        .gallery {
-            padding: 6rem 2rem;
-        }
-        
-        .gallery h2 {
-            text-align: center;
-            margin-bottom: 4rem;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .gallery h2:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 1.5rem;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            aspect-ratio: 3/2;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: all 0.3s ease;
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        .gallery-overlay h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 6rem 2rem;
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-        }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .about h2 {
-            text-align: center;
-            margin-bottom: 4rem;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .about h2:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary-color);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-        }
-        
-        .about p {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .social-links a {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid var(--secondary-color);
-        }
-        
-        .social-links a:hover {
-            transform: translateY(-5px);
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 6rem 2rem;
-        }
-        
-        .contact h2 {
-            text-align: center;
-            margin-bottom: 4rem;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .contact h2:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: var(--font-main);
-            font-size: 1rem;
-        }
-        
-        textarea {
-            min-height: 150px;
-        }
-        
-        button {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        
-        button:hover {
-            background-color: var(--accent-color);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            
-            .logo {
-                margin-bottom: 1rem;
-            }
-            
-            .nav-links li {
-                margin-left: 1rem;
-                margin-right: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="logo">YOUR NAME</div>
-        <ul class="nav-links">
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Minimal and beautiful photography portfolio of Your Name" />
+    <meta property="og:title" content="Your Name • Photography" />
+    <meta property="og:description" content="Explore the visual world of Your Name through timeless frames." />
+    <title>Your Name • Photography</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <button class="nav__toggle" aria-label="Open menu">☰</button>
+        <a href="#" class="nav__logo">YourName</a>
+        <ul class="nav__links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
+      </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" style="background-image: url('/api/placeholder/1200/800');">
-        <div class="hero-content">
-            <h1>CAPTURING MOMENTS</h1>
-            <p>Photography is the story I fail to put into words</p>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero__inner">
+          <h1 class="hero__title">Your Name</h1>
+          <p class="hero__subtitle">Where visions meet reality through the lens</p>
+          <div class="scroll-indicator">↓</div>
         </div>
-    </section>
+      </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <h2>My Work</h2>
-        <div class="gallery-grid">
-            <!-- You can add more items as needed -->
-            <div class="gallery-item">
-                <img src="/api/placeholder/600/400" alt="Photo 1">
-                <div class="gallery-overlay">
-                    <h3>Nature</h3>
-                    <p>Description of the photo</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/600/400" alt="Photo 2">
-                <div class="gallery-overlay">
-                    <h3>Urban</h3>
-                    <p>Description of the photo</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/600/400" alt="Photo 3">
-                <div class="gallery-overlay">
-                    <h3>Portrait</h3>
-                    <p>Description of the photo</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/600/400" alt="Photo 4">
-                <div class="gallery-overlay">
-                    <h3>Street</h3>
-                    <p>Description of the photo</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/600/400" alt="Photo 5">
-                <div class="gallery-overlay">
-                    <h3>Architecture</h3>
-                    <p>Description of the photo</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/api/placeholder/600/400" alt="Photo 6">
-                <div class="gallery-overlay">
-                    <h3>Travel</h3>
-                    <p>Description of the photo</p>
-                </div>
-            </div>
+      <!-- Gallery Section -->
+      <section class="gallery">
+        <div class="gallery__grid">
+          <figure class="gallery__item"><img src="photos/1.jpg" alt="Portrait shot" loading="lazy" /><figcaption></figcaption></figure>
+          <figure class="gallery__item"><img src="photos/2.jpg" alt="Street scene" loading="lazy" /><figcaption></figcaption></figure>
+          <figure class="gallery__item"><img src="photos/3.jpg" alt="Black and white emotion" loading="lazy" /><figcaption></figcaption></figure>
+          <figure class="gallery__item"><img src="photos/4.jpg" alt="Urban style" loading="lazy" /><figcaption></figcaption></figure>
         </div>
-    </section>
+      </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-content">
-            <h2>About Me</h2>
-            <img src="/api/placeholder/300/300" alt="Your Profile Picture" class="profile-pic">
-            <p>Hello! I'm [Your Name], a passionate photographer based in [Your Location]. I specialize in [your photography specialties]. Photography has been my passion for [number] years, and I love capturing moments that tell a story.</p>
-            <p>My work has been featured in [publications/exhibitions if applicable] and I've collaborated with [notable collaborations if applicable]. When I'm not behind the camera, I enjoy [other interests].</p>
-            
-            <div class="social-links">
-                <a href="#" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-                <a href="#" aria-label="Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                    </svg>
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                </a>
-                <a href="#" aria-label="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
+      <!-- About Section -->
+      <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I’m a photographer passionate about capturing fleeting moments and the beauty in everyday life. Based in City, Country. I specialize in portrait and street photography.</p>
+      </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <div class="contact-form">
-            <form id="contactForm">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject">
-                <textarea placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 YOUR NAME. All rights reserved.</p>
+    <!-- Footer / Contact -->
+    <footer id="contact" class="footer">
+      <div class="footer__social">
+        <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener">Twitter</a>
+        <a href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p>&copy; 2025 Your Name</p>
     </footer>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        });
-
-        // Form submission (for GitHub Pages, this would need to be connected to a service)
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('This is a demo. In a real website, this form would send your message.');
-            this.reset();
-        });
-    </script>
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>
+
+/* css/style.css */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #0a0a0a;
+  --color-muted: #666;
+  --color-border: #dedede;
+  --color-accent: #007aff;
+  --spacing: 1rem;
+  --transition-speed: 0.3s;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+}
+body { display: flex; flex-direction: column; min-height: 100vh; }
+
+.header {
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+
+.nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--spacing);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.nav__links {
+  list-style: none;
+  display: none;
+  gap: var(--spacing);
+}
+
+.nav__links a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.nav__toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+body.menu-open .nav__links { display: flex; }
+
+.hero {
+  text-align: center;
+  padding: calc(var(--spacing) * 5) var(--spacing) var(--spacing);
+  background: var(--color-bg);
+}
+
+.hero__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero__subtitle {
+  margin-top: var(--spacing);
+  color: var(--color-muted);
+  font-size: 1rem;
+}
+
+.scroll-indicator {
+  font-size: 1.5rem;
+  color: var(--color-muted);
+  margin-top: 2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+.gallery {
+  padding: calc(var(--spacing) * 2);
+  background: var(--color-bg);
+}
+
+.gallery__grid {
+  display: grid;
+  gap: var(--spacing);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+.gallery__item {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform var(--transition-speed);
+}
+
+.gallery__item:hover {
+  transform: scale(1.02);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  transition: transform var(--transition-speed);
+  display: block;
+}
+
+.about {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: calc(var(--spacing) * 2) var(--spacing);
+  line-height: 1.6;
+}
+
+.about h2 {
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing);
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: calc(var(--spacing) * 2);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.footer__social a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color var(--transition-speed);
+}
+
+.footer__social a:hover {
+  color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .nav__links { display: flex; }
+  .nav__toggle { display: none; }
+  .gallery__grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .hero__title { font-size: 3.5rem; }
+}
+
+/* js/script.js */
+const toggle = document.querySelector('.nav__toggle');
+toggle.addEventListener('click', () => document.body.classList.toggle('menu-open'));
