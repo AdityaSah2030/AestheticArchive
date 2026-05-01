@@ -61,9 +61,10 @@ Visit the live website: [Aesthetic Archive](https://adityasah2030.github.io/Aest
 Aesthetic-Archive/
 │
 ├── index.html              # Main HTML file
+├── style.css               # Main CSS stylesheet
+├── script.js               # Interactive JavaScript
 ├── Assets/                 # Contains profile image and site assets
 │   └── dp1.jpg             # Profile photo
-│   └── preview.jpg         # Website preview image
 │
 ├── Photos/                 # Photography collection
 │   ├── 20250423_01.jpg     
@@ -92,4 +93,4 @@ Project Link: [https://github.com/AdityaSah2030/Aesthetic-Archive](https://githu
 
 ---
 
-<p align="center">© 2025 Aditya Sah. All rights reserved.</p>
+<p align="center">© 2026 Aditya Sah. All rights reserved.</p>
