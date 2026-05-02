@@ -14,7 +14,7 @@ Aesthetic Archive is a responsive, modern photography portfolio website designed
 
 ## 🌐 Live Demo
 
-Visit the live website: [Aesthetic Archive](https://adityasah2030.github.io/Aesthetic-Archive/)
+Visit the live website: [Aesthetic Archive](https://adityasah2030.github.io/AestheticArchive/)
 
 ## ✨ Features
 
@@ -45,12 +45,12 @@ Visit the live website: [Aesthetic Archive](https://adityasah2030.github.io/Aest
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/AdityaSah2030/Aesthetic-Archive.git
+   git clone https://github.com/AdityaSah2030/AestheticArchive.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd Aesthetic-Archive
+   cd AestheticArchive
    ```
 
 3. Open `index.html` in your preferred browser to view the website locally.
@@ -58,7 +58,7 @@ Visit the live website: [Aesthetic Archive](https://adityasah2030.github.io/Aest
 ## 📂 Project Structure
 
 ```
-Aesthetic-Archive/
+AestheticArchive/
 │
 ├── index.html              # Main HTML file
 ├── style.css               # Main CSS stylesheet
@@ -83,13 +83,13 @@ Aesthetic-Archive/
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/AdityaSah2030/Aesthetic-Archive/issues) if you want to contribute.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/AdityaSah2030/AestheticArchive/issues) if you want to contribute.
 
 ## 👤 Contact
 
 Aditya Sah - [adityasah2030@gmail.com](mailto:adityasah2030@gmail.com)
 
-Project Link: [https://github.com/AdityaSah2030/Aesthetic-Archive](https://github.com/AdityaSah2030/Aesthetic-Archive)
+Project Link: [https://github.com/AdityaSah2030/AestheticArchive](https://github.com/AdityaSah2030/AestheticArchive)
 
 ---
 
