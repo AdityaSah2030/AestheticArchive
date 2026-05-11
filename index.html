@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Sah - Photography</title>
     <!-- Font Awesome for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,23 +13,22 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Aesthetic Archive</div>
+                <div class="logo">Aesthetic Archive<span style="color: var(--accent)">.</span></div>
                 <div class="nav-links">
                     <a href="#gallery">Portfolio</a>
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </div>
-                <button class="mobile-menu-btn">☰</button>
+                <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
 
-    <div class="mobile-menu">
-        <button class="close-menu">✕</button>
-        <a href="#gallery">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </div>
 
     <section class="hero">
         <div class="container">
@@ -251,7 +250,7 @@
             <h2>Get In Touch</h2>
             <div class="contact-content">
                 <p>Feel free to reach out to me for collaborations or any questions.</p>
-                <p>Email: <a href="mailto:adityasah2030@gmail.com">adityasah2030@gmail.com</a></p>
+                <a href="mailto:adityasah2030@gmail.com" class="contact-email">adityasah2030@gmail.com</a>
                 
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/adityasah2030" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer">
@@ -261,16 +260,10 @@
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="https://twitter.com/adityasah2030" class="social-link" title="Twitter" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fa-brands fa-x-twitter"></i>
                     </a>
                     <a href="http://www.instagram.com/adityasah2030" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://discord.com/users/adityasah2030" class="social-link" title="Discord" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-discord"></i>
-                    </a>
-                    <a href="https://t.me/adityasah2030" class="social-link" title="Telegram" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-telegram-plane"></i>
                     </a>
                 </div>
             </div>
@@ -279,7 +272,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Aditya Sah Photography. All rights reserved.</p>
+            <p class="copyright">© 2026 Aditya Sah. All rights reserved.</p>
         </div>
     </footer>
 
