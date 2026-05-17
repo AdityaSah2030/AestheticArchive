@@ -78,7 +78,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 0;
+    padding: 1.5rem 0;
 }
 
 .logo {
@@ -91,6 +91,13 @@ nav {
 .nav-links {
     display: flex;
     gap: 2rem;
+    align-items: center;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .nav-links a {
@@ -112,7 +119,6 @@ nav {
     font-size: 1.25rem;
     cursor: pointer;
     transition: color var(--transition-fast);
-    margin-left: 2rem;
 }
 
 .theme-toggle:hover {

@@ -76,7 +76,6 @@ AestheticArchive/
 
 ## 🔄 Future Updates
 
-- Adding a dark mode toggle
 - Implementing image lazy loading for better performance
 - Creating dedicated galleries by photography categories
 - Adding a blog section to share photography insights
@@ -88,9 +87,6 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 👤 Contact
 
 Aditya Sah - [adityasah2030@gmail.com](mailto:adityasah2030@gmail.com)
-
-Project Link: [https://github.com/AdityaSah2030/AestheticArchive](https://github.com/AdityaSah2030/AestheticArchive)
-
 ---
 
 <p align="center">© 2026 Aditya Sah. All rights reserved.</p>
